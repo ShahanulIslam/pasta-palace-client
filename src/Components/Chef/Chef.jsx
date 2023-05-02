@@ -1,8 +1,9 @@
 import React from 'react';
 import { AiFillLike } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 const Chef = ({ chef }) => {
-    const { name, picture, years_of_experience, likes, num_of_recipes
+    const { id,name, picture, years_of_experience, likes, num_of_recipes
     } = chef;
 
 
@@ -17,7 +18,7 @@ const Chef = ({ chef }) => {
                     <p>Recipes : {num_of_recipes}</p>
                 </div>
                 <div className="card-actions justify-center mt-5">
-                    <button className="btn btn-primary">View Recipes</button>
+                   <Link to={`chefdetails/${id}`}> <button className="btn btn-primary">View Recipes</button></Link>
                 </div>
             </div>
         </div>
