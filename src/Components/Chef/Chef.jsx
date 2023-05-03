@@ -3,8 +3,7 @@ import { AiFillLike } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 
 const Chef = ({ chef }) => {
-    const { id,name, picture, years_of_experience, likes, num_of_recipes
-    } = chef;
+    const { id,name, picture, years_of_experience, likes, num_of_recipes} = chef;
 
 
     return (
