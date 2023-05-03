@@ -28,14 +28,12 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Chef Section */}
             <div className='mt-9'>
                 <div className='text-center'>
                     <h2 className='font-semibold text-2xl'>Meet Our Talented Chefs: Learn More About Our Culinary Experts</h2>
                     <p className='my-3'> Our team of talented chefs brings years of experience and passion to our kitchen. <br /> From classic dishes to innovative creations, they are dedicated to crafting the perfect meal for every guest.</p>
                 </div>
-                <div className='grid grid-cols-3 gap-4 mt-10'>
+                <div className='grid grid-cols-3 gap-4 mt-10 px-10'>
                     {chefs.map(chef => <Chef
                         key={chef.id}
                         chef={chef}

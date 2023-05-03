@@ -1,14 +1,15 @@
 import React from 'react';
+import img from "../../assets/404.png"
 
 const NotFound = () => {
     return (
-        <div>
-            <div class="flex flex-col h-screen justify-center items-center px-4">
-                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">404 Not Found</h1>
-                <p class="text-lg md:text-2xl text-gray-700 mb-8 text-center">Sorry, the page you are looking for does not exist.</p>
-                <a href="/" class="bg-violet-500 hover:bg-violet-600 text-white font-semibold py-3 px-8 rounded">Go back to homepage</a>
+        <div className='h-[500px] mt-36'>
+            <div className='flex justify-center items-center text-8xl font-bold'>
+                <div>4</div>
+                <div><img className='w-20' src={img} alt="" /></div>
+                <div>4</div>
             </div>
-
+            <h1 className='text-4xl text-center mt-5 font-semibold'>Page is not found</h1>
         </div>
     );
 };

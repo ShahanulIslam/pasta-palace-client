@@ -4,11 +4,10 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
     const { signIn, logInWithGoogle, logInWithGit, setUser } = useContext(AuthContext)
-    const navigate = useNavigate()
-    const location = useLocation()
-    console.log(location)
-    const from = location?.state?.from?.pathname || "/"
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || "/";
+    
     const handleSignIn = event => {
         event.preventDefault()
         const form = event.target;
