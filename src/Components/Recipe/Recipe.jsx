@@ -1,4 +1,7 @@
 import React from 'react';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
+
 
 const Recipe = ({ chefRecipe }) => {
     console.log(chefRecipe)
@@ -20,8 +23,12 @@ const Recipe = ({ chefRecipe }) => {
                         })
                     }
                 </h2>
-                <p>{rating}</p>
-
+                <div className='flex items-center'>
+                <span><Rating style={{ maxWidth: 100 }} 
+                value={Math.round(rating) || 0} 
+                readOnly/></span>
+                <span className='ms-2'>{rating}</span>
+                </div>
             </div>
         </div>
     );
