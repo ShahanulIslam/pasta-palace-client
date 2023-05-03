@@ -12,10 +12,11 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photo, email, password)
+        
         createUser(email, password)
             .then(result => {
-                const createdUser = result.user
-                setUser(createUser)
+                const createdUser = result.user;
+                setUser(createdUser)
             })
             .catch(error => {
                 console.log(error)
@@ -25,8 +26,8 @@ const Register = () => {
     const handleGoogleLogin = () => {
         logInWithGoogle()
             .then(result => {
-                const createdUser = result.user
-                setUser(createUser)
+                const createdUser = result.user;
+                setUser(createdUser)
             })
             .catch(error => {
                 console.error(error);

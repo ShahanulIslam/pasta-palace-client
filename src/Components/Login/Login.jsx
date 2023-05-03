@@ -1,9 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
-    const { signIn, logInWithGoogle,logInWithGit, setUser } = useContext(AuthContext)
+    const { signIn, logInWithGoogle, logInWithGit, setUser } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location)
+    const from = location?.state?.from?.pathname || "/"
+
     const handleSignIn = event => {
         event.preventDefault()
         const form = event.target;
@@ -13,19 +18,20 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser)
+                navigate(from, { replace: true })
             })
             .catch(error => {
-                console.log(error)
+                console.error(error);
             })
     }
 
     const handleGoogleLogin = () => {
         logInWithGoogle()
             .then(result => {
-                const createdUser = result.user
+                const createdUser = result.user;
                 console.log(createdUser)
-                setUser(createdUser)
+                setUser(createdUser);
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error)
@@ -37,7 +43,8 @@ const Login = () => {
         logInWithGit()
             .then(result => {
                 const createdUser = result.user
-                console.log(createdUser)
+                console.log(createdUser);
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.error(error);
