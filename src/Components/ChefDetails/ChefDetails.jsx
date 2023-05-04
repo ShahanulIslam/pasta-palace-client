@@ -13,7 +13,7 @@ const ChefDetails = () => {
                 <h2 className='text-center text-3xl font-bold'>Details of {name}</h2>
             </div>
             <div className="card card-side bg-base-100 shadow-xl mt-7 w-4/5 mx-auto py-5">
-                <div className='w-1/2 p-3'>
+                <div className='w-1/2 p-3 '>
                     <figure className='p-4'><img src={picture} alt="" /></figure>
                     <div className='flex justify-between mt-4'>
                         <p>{years_of_experience} Years Experience </p>
@@ -30,7 +30,7 @@ const ChefDetails = () => {
             </div>
             <div className="mt-8">
                 <h2 className='font-semibold text-center text-3xl'>Some of My recipes</h2>
-                <div className='grid grid-cols-1 gap-6 w-4/5 mx-auto mt-5'>
+                <div className='grid md:grid-cols-1 gap-6 w-4/5 mx-auto mt-5'>
                     {
                         chefRecipes.map(chefRecipe =>  <Recipe
                         chefRecipe={chefRecipe}

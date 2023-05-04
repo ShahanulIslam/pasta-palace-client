@@ -4,10 +4,9 @@ import '@smastrom/react-rating/style.css'
 
 
 const Recipe = ({ chefRecipe }) => {
-    console.log(chefRecipe)
-    const { name, recipe_img, ingredients, cooking_method, rating, favorite } = chefRecipe
+    const { name, recipe_img, ingredients, cooking_method, rating } = chefRecipe
     return (
-        <div className="card card-side bg-base-300 shadow-xl p-3 rounded-lg ">
+        <div className="card card-side  bg-base-300 shadow-xl p-3 rounded-lg ">
             <div className='w-1/2 mt-8'>
                 <figure><img src={recipe_img} alt="" /></figure>
             </div>
