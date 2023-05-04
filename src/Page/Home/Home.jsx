@@ -38,7 +38,6 @@ const Home = () => {
                         key={chef.id}
                         chef={chef}
                     >
-
                     </Chef>)}
                 </div>
             </div>

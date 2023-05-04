@@ -6,21 +6,21 @@ const Blog = () => {
             <h1 className="text-3xl font-bold mb-4 text-center">Here Some Question</h1>
 
             <div className="my-8">
-                <h2 className="text-xl font-bold mb-2">1. Differences between uncontrolled and controlled components</h2>
+                <h2 className="text-xl font-bold mb-2">1. Differences between uncontrolled and controlled components?</h2>
                 <p className="text-sm md:text-base">
                     Controlled components are those whose value is controlled by the parent component through props, and changes to the value of the component can only be made through a change in the parent state. Uncontrolled components, on the other hand, allow the user to control the value of the component directly, without interference from the parent component.
                 </p>
             </div>
 
             <div className="my-8">
-                <h2 className="text-xl font-bold mb-2">2. How to validate React props using PropTypes</h2>
+                <h2 className="text-xl font-bold mb-2">2. How to validate React props using PropTypes?</h2>
                 <p className="text-sm md:text-base">
                     PropTypes is a typechecking library that can be used to validate the types of props being passed to a component. To use PropTypes, you must first import it from the 'prop-types' package. Then, you can define the expected props for your component using the propTypes object, which contains the name and type of each prop.
                 </p>
             </div>
 
             <div className="my-8">
-                <h2 className="text-xl font-bold mb-2">3. Difference between Node.js and Express.js</h2>
+                <h2 className="text-xl font-bold mb-2">3. Difference between Node.js and Express.js?</h2>
                 <p className="text-sm md:text-base">
                     Node.js is a JavaScript runtime that allows you to run JavaScript code outside of a web browser. Express.js is a web application framework built on top of Node.js, which provides a set of tools and features to help you build web applications.
                 </p>

@@ -16,7 +16,7 @@ const router =createBrowserRouter([
             {
                 path:"/",
                 element:<Home></Home>,
-                loader:()=>fetch("http://localhost:5000/chef")
+                loader:()=>fetch("https://chef-recipe-hunter-server-shahanulislam.vercel.app/chef")
             },
             {
                 path:"/blog",
@@ -25,7 +25,7 @@ const router =createBrowserRouter([
             {
                 path:"/chefdetails/:id",
                 element:<PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
-                loader:({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
+                loader:({params}) => fetch(`https://chef-recipe-hunter-server-shahanulislam.vercel.app/chef/${params.id}`)
             },
             {
                 path:"/login",

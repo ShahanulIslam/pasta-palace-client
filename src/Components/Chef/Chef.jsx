@@ -12,7 +12,7 @@ const Chef = ({ chef }) => {
                 <img src={picture} alt="Shoes" />
             </figure>
             <div className="card-body">
-                <h2 className="card-title text-center mb-2">{name}</h2>
+                <h2 className="card-title justify-center mb-2">{name}</h2>
                 <div className="flex flex-col sm:flex-row justify-center">
                     <p className="text-sm text-center sm:text-left mb-2 sm:mb-0">{years_of_experience} Years Experience</p>
                     <p className="text-sm text-center sm:text-left mb-2 sm:mb-0 flex items-center justify-center">
