@@ -1,26 +1,47 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
-    const { createUser, logInWithGoogle, logInWithGit, setUser } = useContext(AuthContext)
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
+    const { createUser, logInWithGoogle, logInWithGit, setUser } = useContext(AuthContext);
+
     const handleRegister = event => {
         event.preventDefault()
         const form = event.target;
-        const name = form.name.value;
-        const photo = form.photo.value;
+        const displayName = form.name.value;
+        const photoUrl = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password)
-        
-        createUser(email, password)
-            .then(result => {
-                const createdUser = result.user;
-                setUser(createdUser)
+        // console.log(name, photo, email, password)
+        setError("");
+        setSuccess("");
+        if (password.length < 6) {
+            setError("The password is less than 6 characters");
+            return;
+        }
+
+        createUser(email, password, displayName, photoUrl)
+            .then((result) => {
+                // User created successfully, update profile
+                const loggedUser = result.user;
+                return updateProfile(loggedUser, {
+                    displayName: displayName,
+                    photoURL: photoUrl,
+                }).then(() => {
+                    console.log("Profile updated successfully");
+                    console.log(loggedUser);
+                    // toast.success("User created successfully");
+                    form.reset();
+                });
+               
             })
-            .catch(error => {
-                console.log(error)
-            })
+            .catch((error) => {
+                console.error("Error creating user:", error.message);
+                error(error.message);
+              });
     }
 
     const handleGoogleLogin = () => {
@@ -74,11 +95,15 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" name='password' required placeholder="password" className="input input-bordered" />
+                            <input type="password" name='password' required placeholder="password" className="input input-bordered" />
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>
                         </div>
+                        <label className="label">
+                            <p className='text-red-600'><small>{error}</small></p>
+                            <p className='text-green-600'><small>{success}</small></p>
+                        </label>
                         <p><small>Already have an account? <Link to="/login">Login</Link> </small></p>
                         <div className="form-control mt-6 space-y-4">
                             <button onClick={handleGoogleLogin} className="btn btn-primary">Google Sign-in</button>

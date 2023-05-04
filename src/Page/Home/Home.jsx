@@ -62,6 +62,26 @@ const Home = () => {
                     }
                 </div>
             </div>
+
+            <div>
+                <div className="banner relative">
+                    <div className='bg-fixed h-[600px] md:h-96' style={{
+                        backgroundImage: `url(${bg})`,
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover',
+                    }}>
+
+                    </div>
+                    <div className="banner-content absolute top-0 bg-black h-[600px] md:h-[400px] w-full bg-opacity-70 py-8 px-6 md:px-14">
+                        <div className='text-center p-12 text-white'>
+                            
+                            <h1 className='text-2xl'><span className='text-5xl'>"</span> Eating healthy food fills your body with energy and nutrients Imagine <br /> your cells smiling back at you and saying<span className='text-5xl'>"</span> </h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     );
 };

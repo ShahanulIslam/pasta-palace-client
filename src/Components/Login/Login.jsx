@@ -1,8 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
     const { signIn, logInWithGoogle, logInWithGit, setUser } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
@@ -13,14 +15,17 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        setError("")
+        setSuccess("")
+
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
+                setSuccess("Log in success")
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                console.error(error);
+                setError(error.message);
             })
     }
 
@@ -68,11 +73,16 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" name="password" required placeholder="password" className="input input-bordered" />
+                            <input type="password" name="password" required placeholder="password" className="input input-bordered" />
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
+                        <label className="label">
+                            <p className='text-red-600'><small>{error}</small></p>
+                            <p className='text-green-600'><small>{success}</small></p>
+                        </label>
+                        
                         <p>
                             <small>
                                 New to Pasta Palace?
