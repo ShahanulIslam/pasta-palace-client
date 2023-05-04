@@ -11,7 +11,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar  mx-auto bg-sky-200">
+    <div className="navbar  mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -26,8 +26,8 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-semibold space-x-6">
-          <NavLink className={({isActive}) => isActive ? 'font-bold bg-indigo-500 text-white' : ''} to='/'>Home</NavLink>
-          <NavLink className={({isActive}) => isActive ? 'font-bold bg-indigo-500 text-white' : ''} to='/blog'>Blog</NavLink>
+          <NavLink className={({isActive}) => isActive ? 'font-bold bg-indigo-500 p-2 text-white' : ''} to='/'>Home</NavLink>
+          <NavLink className={({isActive}) => isActive ? 'font-bold bg-indigo-500 text-white p-2' : ''} to='/blog'>Blog</NavLink>
         </ul>
       </div>
       <div className="navbar-end flex items-center gap-5">

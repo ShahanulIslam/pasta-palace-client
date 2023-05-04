@@ -3,9 +3,16 @@ import bg from "../../assets/banner-bg.jpg"
 import chef from "../../assets/chef.png"
 import Chef from '../../Components/Chef/Chef';
 import { useLoaderData } from 'react-router-dom';
+import Foods from '../../Components/Foods/Foods';
 
 const Home = () => {
     const chefs = useLoaderData()
+    const [foods, setFoods] = useState([])
+    useEffect(() => {
+        fetch("https://chef-recipe-hunter-server-shahanulislam.vercel.app/foods")
+            .then(res => res.json())
+            .then(data => setFoods(data))
+    }, [])
 
     return (
         <div>
@@ -39,6 +46,20 @@ const Home = () => {
                         chef={chef}
                     >
                     </Chef>)}
+                </div>
+            </div>
+            <div className='my-10 w-11/12 mx-auto'>
+                <div className='text-center space-y-2'>
+                    <h2 className='font-bold text-2xl '>Savor the flavor</h2>
+                    <p className='font-semibold'>Delicious Recipes for Every Occasion</p>
+                </div>
+                <div className='grid grid-cols-1 md:grid-cols-3 mt-10 gap-4'>
+                    {
+                        foods.map(food => <Foods
+                            key={food.id}
+                            food={food}
+                        ></Foods>)
+                    }
                 </div>
             </div>
         </div>

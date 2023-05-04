@@ -9,7 +9,7 @@ const Chef = ({ chef }) => {
     return (
         <div className="card card-compact w-full sm:w-96 bg-base-100 shadow-xl p-5">
             <figure>
-                <img src={picture} alt="Shoes" />
+                <img src={picture} alt="" />
             </figure>
             <div className="card-body">
                 <h2 className="card-title justify-center mb-2">{name}</h2>
@@ -23,7 +23,7 @@ const Chef = ({ chef }) => {
                 </div>
                 <div className="card-actions justify-center mt-5">
                     <Link to={`chefdetails/${id}`}>
-                        <button className="btn btn-primary">View Recipes</button>
+                        <button className="btn btn-accent">View Recipes</button>
                     </Link>
                 </div>
             </div>
