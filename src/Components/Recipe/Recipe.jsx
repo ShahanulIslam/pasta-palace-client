@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const Recipe = ({ chefRecipe }) => {
+    const [favorite,setFavorite] =useState(true)
+    const handleFavorite = () =>{
+       setFavorite(false); 
+       toast('Added to favorite!') 
+    }
+
     const { name, recipe_img, ingredients, cooking_method, rating } = chefRecipe
     return (
         <div className="card card-side  bg-base-300 shadow-xl p-3 rounded-lg ">
@@ -22,11 +31,17 @@ const Recipe = ({ chefRecipe }) => {
                         })
                     }
                 </h2>
-                <div className='flex items-center'>
-                <span><Rating style={{ maxWidth: 100 }} 
-                value={Math.round(rating) || 0} 
-                readOnly/></span>
-                <span className='ms-2'>{rating}</span>
+                <div className='flex items-center justify-between'>
+                    <div className='flex'>
+                        <span><Rating style={{ maxWidth: 100 }}
+                            value={Math.round(rating) || 0}
+                            readOnly /></span>
+                        <span className='ms-2'>{rating}</span>
+                    </div>
+                    <div>
+                        <button onClick={handleFavorite} disabled={!favorite} className='btn btn-accent'>Favorite</button>
+                        <ToastContainer></ToastContainer>
+                    </div>
                 </div>
             </div>
         </div>
