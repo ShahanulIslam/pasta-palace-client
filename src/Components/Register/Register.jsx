@@ -22,7 +22,6 @@ const Register = () => {
             setError("The password is less than 6 characters");
             return;
         }
-
         createUser(email, password, displayName, photoUrl)
             .then((result) => {
                 // User created successfully, update profile
